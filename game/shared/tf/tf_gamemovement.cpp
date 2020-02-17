@@ -321,9 +321,8 @@ void CTFGameMovement::AirDash(void)
 void CTFGameMovement::PreventBunnyJumping()
 {
 	// Speed at which bunny jumping is limited
-	if (player->m_flSpeed > player->m_flMaxspeed) {
-		player->m_flSpeed = player->m_flSpeed / 2; // we halve the speed since I don't fucking want u to bhop
-	}
+	if (player->m_flSpeed >= player->m_flMaxspeed) 
+		player->m_flSpeed = player->m_flSpeed / 2; // We halve the speed since I don't fucking want u to bhop.
 }
 bool CTFGameMovement::CheckJumpButton()
 {
