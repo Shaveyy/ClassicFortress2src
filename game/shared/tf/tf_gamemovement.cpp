@@ -1171,7 +1171,7 @@ void CTFGameMovement::Duck(void)
 		if (player->m_afButtonPressed &= IN_DUCK)
 			timescrouchedtemp++;
 		if (timescrouchedtemp >= 6)
-			mv->m_nButtons &= ~IN_JUMP;
+			mv->m_nButtons &= ~IN_DUCK;
 
 	}
 	//		if (mv->m_nButtons &= IN_DUCK) {
