@@ -1,0 +1,80 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Client (TF)", "game\client\client_tf_mod.vcxproj", "{09094972-F64A-AF5A-E333-8767243BD9B4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BAB92FF0-D72A-D7E5-1988-74628D39B94F} = {BAB92FF0-D72A-D7E5-1988-74628D39B94F}
+		{EC1C516D-E1D9-BC0A-F79D-E91E954ED8EC} = {EC1C516D-E1D9-BC0A-F79D-E91E954ED8EC}
+		{F69B3672-C5E8-CD1A-257F-253A25B5B939} = {F69B3672-C5E8-CD1A-257F-253A25B5B939}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mathlib", "mathlib\mathlib.vcxproj", "{BAB92FF0-D72A-D7E5-1988-74628D39B94F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Raytrace", "raytrace\raytrace.vcxproj", "{95D67225-8415-236F-9128-DCB171B7DEC6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Server (TF)", "game\server\server_tf_mod.vcxproj", "{5217B600-BA6C-E88A-1E95-FD7ACE7BEAF5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BAB92FF0-D72A-D7E5-1988-74628D39B94F} = {BAB92FF0-D72A-D7E5-1988-74628D39B94F}
+		{EC1C516D-E1D9-BC0A-F79D-E91E954ED8EC} = {EC1C516D-E1D9-BC0A-F79D-E91E954ED8EC}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tier1", "tier1\tier1.vcxproj", "{EC1C516D-E1D9-BC0A-F79D-E91E954ED8EC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vgui_controls", "vgui2\vgui_controls\vgui_controls.vcxproj", "{F69B3672-C5E8-CD1A-257F-253A25B5B939}"
+EndProject
+Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "hl2", "..\CFDev\hl2.exe", "{991B4737-A03E-406F-995D-E9CECCD9FA63}"
+	ProjectSection(DebuggerProjectSystem) = preProject
+		PortSupplier = 00000000-0000-0000-0000-000000000000
+		Executable = C:\Users\pokeg\Desktop\classic tf2\CFDev\hl2.exe
+		RemoteMachine = DESKTOP-U0SOJ14
+		StartingDirectory = C:\Users\pokeg\Desktop\classic tf2\CFDev
+		Arguments = -game classic -window -w 1600 -h 900 -novid +developer 2 -console 
+		Environment = Default
+		LaunchingEngine = 00000000-0000-0000-0000-000000000000
+		UseLegacyDebugEngines = No
+		LaunchSQLEngine = No
+		AttachLaunchAction = No
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09094972-F64A-AF5A-E333-8767243BD9B4}.Debug|x86.ActiveCfg = Debug|Win32
+		{09094972-F64A-AF5A-E333-8767243BD9B4}.Debug|x86.Build.0 = Debug|Win32
+		{09094972-F64A-AF5A-E333-8767243BD9B4}.Release|x86.ActiveCfg = Release|Win32
+		{09094972-F64A-AF5A-E333-8767243BD9B4}.Release|x86.Build.0 = Release|Win32
+		{BAB92FF0-D72A-D7E5-1988-74628D39B94F}.Debug|x86.ActiveCfg = Debug|Win32
+		{BAB92FF0-D72A-D7E5-1988-74628D39B94F}.Debug|x86.Build.0 = Debug|Win32
+		{BAB92FF0-D72A-D7E5-1988-74628D39B94F}.Release|x86.ActiveCfg = Release|Win32
+		{BAB92FF0-D72A-D7E5-1988-74628D39B94F}.Release|x86.Build.0 = Release|Win32
+		{95D67225-8415-236F-9128-DCB171B7DEC6}.Debug|x86.ActiveCfg = Debug|Win32
+		{95D67225-8415-236F-9128-DCB171B7DEC6}.Debug|x86.Build.0 = Debug|Win32
+		{95D67225-8415-236F-9128-DCB171B7DEC6}.Release|x86.ActiveCfg = Release|Win32
+		{95D67225-8415-236F-9128-DCB171B7DEC6}.Release|x86.Build.0 = Release|Win32
+		{5217B600-BA6C-E88A-1E95-FD7ACE7BEAF5}.Debug|x86.ActiveCfg = Debug|Win32
+		{5217B600-BA6C-E88A-1E95-FD7ACE7BEAF5}.Debug|x86.Build.0 = Debug|Win32
+		{5217B600-BA6C-E88A-1E95-FD7ACE7BEAF5}.Release|x86.ActiveCfg = Release|Win32
+		{5217B600-BA6C-E88A-1E95-FD7ACE7BEAF5}.Release|x86.Build.0 = Release|Win32
+		{EC1C516D-E1D9-BC0A-F79D-E91E954ED8EC}.Debug|x86.ActiveCfg = Debug|Win32
+		{EC1C516D-E1D9-BC0A-F79D-E91E954ED8EC}.Debug|x86.Build.0 = Debug|Win32
+		{EC1C516D-E1D9-BC0A-F79D-E91E954ED8EC}.Release|x86.ActiveCfg = Release|Win32
+		{EC1C516D-E1D9-BC0A-F79D-E91E954ED8EC}.Release|x86.Build.0 = Release|Win32
+		{F69B3672-C5E8-CD1A-257F-253A25B5B939}.Debug|x86.ActiveCfg = Debug|Win32
+		{F69B3672-C5E8-CD1A-257F-253A25B5B939}.Debug|x86.Build.0 = Debug|Win32
+		{F69B3672-C5E8-CD1A-257F-253A25B5B939}.Release|x86.ActiveCfg = Release|Win32
+		{F69B3672-C5E8-CD1A-257F-253A25B5B939}.Release|x86.Build.0 = Release|Win32
+		{991B4737-A03E-406F-995D-E9CECCD9FA63}.Debug|x86.ActiveCfg = Release|x86
+		{991B4737-A03E-406F-995D-E9CECCD9FA63}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2C7B5632-4AA1-43E8-A6BC-20A724857FF1}
+	EndGlobalSection
+EndGlobal

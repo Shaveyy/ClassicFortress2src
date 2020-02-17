@@ -1,0 +1,6 @@
+﻿  Running VPC CRC Check - client_tf_mod.vpc
+  cdll_client_int.cpp
+     Creating library .\Release_tf_mod\\client.lib and object .\Release_tf_mod\\client.exp
+  client_tf_mod.vcxproj -> C:\Users\pokeg\Desktop\classic tf2\src\game\client\.\Release_tf_mod\client.dll
+          1 file(s) copied.
+          1 file(s) copied.
