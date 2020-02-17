@@ -441,3 +441,7 @@ vgui2/vgui_controls/Debug/vgui_controls.tlog/CL.read.1.tlog
 vgui2/vgui_controls/Debug/vgui_controls.tlog/cl.write.1.tlog
 vgui2/vgui_controls/Debug/WizardPanel.obj
 vgui2/vgui_controls/Debug/WizardSubPanel.obj
+*.obj
+.vs/games/v16/Browse.VC.db
+*.db
+*.ipch

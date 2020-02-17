@@ -1163,18 +1163,27 @@ void CTFGameMovement::CheckFalling(void)
 int timescrouchedtemp = 0;
 void CTFGameMovement::Duck(void)
 {
-//#if (CLIENT_DLL)
-//		bool bOnGround = (player->GetGroundEntity() != NULL);
-//		if (mv->m_nButtons &= IN_DUCK) {
-//		timescrouchedtemp++;
-			//if (!bOnGround) {
-				//if (timescrouchedtemp >= 2) {
-				//	mv->m_nButtons &= ~IN_DUCK;
-				//	timescrouchedtemp = 0;
-				//}
-//			}
-//		}
-//#endif
+	// stop player from jumping 6 times in mid-air to fix hitboxes.
+	bool bOnGround = (player->GetGroundEntity() != NULL);
+	if (bOnGround)
+		timescrouchedtemp = 0;
+	if (!bOnGround) {
+		if (player->m_afButtonPressed &= IN_DUCK)
+			timescrouchedtemp++;
+		if (timescrouchedtemp >= 6)
+			mv->m_nButtons &= ~IN_JUMP;
+
+	}
+	//		if (mv->m_nButtons &= IN_DUCK) {
+	//		timescrouchedtemp++;
+				//if (!bOnGround) {
+					//if (timescrouchedtemp >= 2) {
+					//	mv->m_nButtons &= ~IN_DUCK;
+					//	timescrouchedtemp = 0;
+					//}
+	//			}
+	//		}
+	//#endif
 	// Don't allowing ducking in water.
 	if (((player->GetWaterLevel() >= WL_Feet) && (player->GetGroundEntity() == NULL)) ||
 		player->GetWaterLevel() >= WL_Eyes)

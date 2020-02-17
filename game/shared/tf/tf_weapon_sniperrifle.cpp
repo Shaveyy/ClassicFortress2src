@@ -315,7 +315,7 @@ void CTFSniperRifle::ItemPostFrame( void )
 			m_flChargedDamage = max( 0, m_flChargedDamage - gpGlobals->frametime * TF_WEAPON_SNIPERRIFLE_UNCHARGE_PER_SEC );
 		}
 	}
-	if (m_flChargedDamage >= 10)
+	if (m_flChargedDamage >= 20)
 		CreateSniperDot();
 	if (pPlayer->m_afButtonPressed & IN_ATTACK) {
 		pPlayer->m_Shared.AddCond(TF_COND_AIMING);
@@ -328,7 +328,7 @@ void CTFSniperRifle::ItemPostFrame( void )
 		DestroySniperDot();
 		pPlayer->m_Shared.RemoveCond(TF_COND_AIMING);
 		pPlayer->TeamFortress_SetSpeed();
-		if (m_flChargedDamage >= 10)
+		if (m_flChargedDamage >= 20)
 			Fire(pPlayer);
 		else 
 			m_flChargedDamage = 0;

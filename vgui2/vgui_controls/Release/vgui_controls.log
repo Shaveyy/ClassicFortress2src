@@ -1,2 +1,27 @@
 ﻿  Running VPC CRC Check - vgui_controls.vpc
+  CvarToggleCheckButton.cpp
+  RichText.cpp
+  RotatingProgressBar.cpp
+  ScalableImagePanel.cpp
+  ScrollBar.cpp
+  ScrollBarSlider.cpp
+  ScrollableEditablePanel.cpp
+  SectionedListPanel.cpp
+  Slider.cpp
+  Splitter.cpp
+  TextEntry.cpp
+  TextImage.cpp
+  ToggleButton.cpp
+  ToolWindow.cpp
+  Tooltip.cpp
+  TreeView.cpp
+  TreeViewListControl.cpp
+  URLLabel.cpp
+  WizardPanel.cpp
+  WizardSubPanel.cpp
+  consoledialog.cpp
+  controls.cpp
+  perforcefilelistframe.cpp
+  savedocumentquery.cpp
+  subrectimage.cpp
   vgui_controls.vcxproj -> C:\Users\pokeg\Desktop\classic tf2\src\vgui2\vgui_controls\..\..\lib\public\.\vgui_controls.lib
