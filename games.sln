@@ -24,20 +24,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tier1", "tier1\tier1.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vgui_controls", "vgui2\vgui_controls\vgui_controls.vcxproj", "{F69B3672-C5E8-CD1A-257F-253A25B5B939}"
 EndProject
-Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "hl2", "..\CFDev\hl2.exe", "{991B4737-A03E-406F-995D-E9CECCD9FA63}"
-	ProjectSection(DebuggerProjectSystem) = preProject
-		PortSupplier = 00000000-0000-0000-0000-000000000000
-		Executable = C:\Users\pokeg\Desktop\classic tf2\CFDev\hl2.exe
-		RemoteMachine = DESKTOP-U0SOJ14
-		StartingDirectory = C:\Users\pokeg\Desktop\classic tf2\CFDev
-		Arguments = -game classic -window -w 1600 -h 900 -novid +developer 2 -console 
-		Environment = Default
-		LaunchingEngine = 00000000-0000-0000-0000-000000000000
-		UseLegacyDebugEngines = No
-		LaunchSQLEngine = No
-		AttachLaunchAction = No
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -68,13 +54,11 @@ Global
 		{F69B3672-C5E8-CD1A-257F-253A25B5B939}.Debug|x86.Build.0 = Debug|Win32
 		{F69B3672-C5E8-CD1A-257F-253A25B5B939}.Release|x86.ActiveCfg = Release|Win32
 		{F69B3672-C5E8-CD1A-257F-253A25B5B939}.Release|x86.Build.0 = Release|Win32
-		{991B4737-A03E-406F-995D-E9CECCD9FA63}.Debug|x86.ActiveCfg = Release|x86
-		{991B4737-A03E-406F-995D-E9CECCD9FA63}.Release|x86.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {2C7B5632-4AA1-43E8-A6BC-20A724857FF1}
+		SolutionGuid = {209DE71C-EF48-40FB-9592-9D192E7029A0}
 	EndGlobalSection
 EndGlobal
