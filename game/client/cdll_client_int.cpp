@@ -844,7 +844,7 @@ const DiscordUser* connectedUserr;
 static void HandleDiscordReady(const DiscordUser* connectedUser)
 {
 	connectedUser = connectedUserr;
-	DevMsg("Discord RPC: Connected to user %s#%s - %s\n",
+	Msg("Discord RPC: Connected to user %s#%s - %s\n",
 		connectedUser->username,
 		connectedUser->discriminator,
 		connectedUser->userId);
@@ -852,12 +852,12 @@ static void HandleDiscordReady(const DiscordUser* connectedUser)
 
 static void HandleDiscordDisconnected(int errcode, const char* message)
 {
-	DevMsg("Discord: Disconnected (%d: %s)\n", errcode, message);
+	Msg("Discord: Disconnected (%d: %s)\n", errcode, message);
 }
 
 static void HandleDiscordError(int errcode, const char* message)
 {
-	DevMsg("Discord: Error (%d: %s)\n", errcode, message);
+	Msg("Discord: Error (%d: %s)\n", errcode, message);
 }
 
 static void HandleDiscordJoin(const char* secret)
@@ -894,6 +894,12 @@ ISourceVirtualReality *g_pSourceVR = NULL;
 
 int CHLClient::Init( CreateInterfaceFn appSystemFactory, CreateInterfaceFn physicsFactory, CGlobalVarsBase *pGlobals )
 {
+#ifdef linux
+	Msg("I noticed you're on Linux! If you have any trouble Linux wise, please create an issue on the github.");
+#elif APPLE
+	Msg("I noticed you're on MacOS! If you have any trouble MacOS wise, please create an issue on github.")
+#endif
+
 	InitCRTMemDebug();
 	MathLib_Init( 2.2f, 2.2f, 0.0f, 2.0f );
 #ifdef SIXENSE
