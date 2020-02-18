@@ -327,9 +327,6 @@ void CTFGameMovement::PreventBunnyJumping()
 }
 bool CTFGameMovement::CheckJumpButton()
 {
-//	if (mv->m_nButtons &= IN_JUMP) // OLD BHOP STUFF
-//		mv->m_nButtons &= ~IN_JUMP;
-//		mv->m_nButtons &= IN_JUMP;
 	// Are we dead?  Then we cannot jump.
 	if (player->pl.deadflag)
 		return false;
@@ -348,7 +345,7 @@ bool CTFGameMovement::CheckJumpButton()
 	bool bOnGround = (player->GetGroundEntity() != NULL);
 
 	// Cannot jump again until the jump button has been released.
-	if (!clas_autohop.GetBool() || bScout) { 
+	if(!clas_autohop.GetBool() && !bScout) {
 		if (mv->m_nOldButtons & IN_JUMP) // anti bhop stuff
 			return false;
 	}
@@ -356,15 +353,15 @@ bool CTFGameMovement::CheckJumpButton()
 	// In air, so ignore jumps (unless you are a scout).
 	if (!bOnGround)
 	{
-		if (bScout && !m_pTFPlayer->m_Shared.IsAirDashing())
-		{
-			bAirDash = clas_doublejump.GetBool();
-		}
-		else
-		{
-			mv->m_nOldButtons |= IN_JUMP;
-			return false;
-		}
+			if (bScout && !m_pTFPlayer->m_Shared.IsAirDashing() && clas_doublejump.GetBool())
+			{
+				bAirDash = true;
+			}
+			else
+			{
+				mv->m_nOldButtons |= IN_JUMP;
+				return false;
+			}
 	}
 
 	// Check for an air dash.
