@@ -29,7 +29,7 @@
 #include "team.h"
 #endif
 
-ConVar	tf_autohop("tf_autohop", "1", FCVAR_REPLICATED ); // not being used atm
+ConVar	clas_autohop("clas_autohop", "1", FCVAR_REPLICATED ); // not being used atm
 ConVar	tf_maxspeed("tf_maxspeed", "400", FCVAR_NOTIFY | FCVAR_REPLICATED | FCVAR_CHEAT | FCVAR_DEVELOPMENTONLY);
 ConVar	tf_showspeed("tf_showspeed", "0", FCVAR_REPLICATED | FCVAR_DEVELOPMENTONLY);
 ConVar	tf_avoidteammates("tf_avoidteammates", "1", FCVAR_REPLICATED | FCVAR_CHEAT | FCVAR_DEVELOPMENTONLY);
@@ -322,8 +322,8 @@ void CTFGameMovement::AirDash(void)
 void CTFGameMovement::PreventBunnyJumping()
 {
 	// Speed at which bunny jumping is limited
-	if (player->m_flSpeed >= player->m_flMaxspeed) 
-		player->m_flSpeed = player->m_flSpeed / 2; // We halve the speed since I don't fucking want u to bhop.
+	if (player->m_flSpeed >= player->m_flMaxspeed + 200) 
+		player->m_flSpeed = player->m_flSpeed / 2; // We halve the speed instead of completly not allowing bhop's.
 }
 bool CTFGameMovement::CheckJumpButton()
 {
@@ -346,22 +346,9 @@ bool CTFGameMovement::CheckJumpButton()
 	bool bScout = m_pTFPlayer->GetPlayerClass()->IsClass(TF_CLASS_SCOUT);
 	bool bAirDash = false;
 	bool bOnGround = (player->GetGroundEntity() != NULL);
-	// Cannot jump will ducked.
-//	if (player->GetFlags() & FL_DUCKING)
-//	{
-//		// Let a scout do it.
-//		bool bAllow = (bScout && !bOnGround);
-//
-	//	if (!bAllow)
-	//		return false;
-	//}
-
-	// Cannot jump while in the unduck transition.
-//	if ((player->m_Local.m_bDucking && (player->GetFlags() & FL_DUCKING)) || (player->m_Local.m_flDuckJumpTime > 0.0f))
-//		return false;
 
 	// Cannot jump again until the jump button has been released.
-	if (tf_autohop.GetInt() == 0) {
+	if (!clas_autohop.GetBool() || bScout) { 
 		if (mv->m_nOldButtons & IN_JUMP) // anti bhop stuff
 			return false;
 	}

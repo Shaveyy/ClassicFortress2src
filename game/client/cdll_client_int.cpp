@@ -898,7 +898,7 @@ int CHLClient::Init( CreateInterfaceFn appSystemFactory, CreateInterfaceFn physi
 	Msg("I noticed you're on Linux! If you have any trouble Linux wise, please create an issue on the github.");
 #elif APPLE
 	Msg("I noticed you're on MacOS! If you have any trouble MacOS wise, please create an issue on github.")
-#endif
+#endif // We've covered both main OS's so we be ggggggood. B)
 
 	InitCRTMemDebug();
 	MathLib_Init( 2.2f, 2.2f, 0.0f, 2.0f );
