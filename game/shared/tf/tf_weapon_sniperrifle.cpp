@@ -318,7 +318,8 @@ void CTFSniperRifle::ItemPostFrame( void )
 	if (m_flChargedDamage >= 20)
 		CreateSniperDot();
 	if (pPlayer->m_afButtonPressed & IN_ATTACK) {
-		pPlayer->m_Shared.AddCond(TF_COND_AIMING);
+		if (pPlayer->GetLocalVelocity().Length() <= 200)
+			pPlayer->m_Shared.AddCond(TF_COND_AIMING);
 			pPlayer->TeamFortress_SetSpeed();
 		// start charging
 	}

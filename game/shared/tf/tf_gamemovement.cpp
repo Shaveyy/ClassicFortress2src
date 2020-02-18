@@ -36,6 +36,7 @@ ConVar	tf_avoidteammates("tf_avoidteammates", "1", FCVAR_REPLICATED | FCVAR_CHEA
 ConVar  tf_solidobjects("tf_solidobjects", "1", FCVAR_REPLICATED | FCVAR_CHEAT | FCVAR_DEVELOPMENTONLY);
 ConVar	tf_clamp_back_speed("tf_clamp_back_speed", "0.9", FCVAR_REPLICATED | FCVAR_DEVELOPMENTONLY);
 ConVar  tf_clamp_back_speed_min("tf_clamp_back_speed_min", "100", FCVAR_REPLICATED | FCVAR_DEVELOPMENTONLY);
+ConVar	clas_doublejump("clas_doublejump", "0", FCVAR_REPLICATED);
 
 #define TF_MAX_SPEED   400
 
@@ -370,7 +371,7 @@ bool CTFGameMovement::CheckJumpButton()
 	{
 		if (bScout && !m_pTFPlayer->m_Shared.IsAirDashing())
 		{
-			bAirDash = true;
+			bAirDash = clas_doublejump.GetBool();
 		}
 		else
 		{
@@ -1172,18 +1173,7 @@ void CTFGameMovement::Duck(void)
 			timescrouchedtemp++;
 		if (timescrouchedtemp >= 6)
 			mv->m_nButtons &= ~IN_DUCK;
-
 	}
-	//		if (mv->m_nButtons &= IN_DUCK) {
-	//		timescrouchedtemp++;
-				//if (!bOnGround) {
-					//if (timescrouchedtemp >= 2) {
-					//	mv->m_nButtons &= ~IN_DUCK;
-					//	timescrouchedtemp = 0;
-					//}
-	//			}
-	//		}
-	//#endif
 	// Don't allowing ducking in water.
 	if (((player->GetWaterLevel() >= WL_Feet) && (player->GetGroundEntity() == NULL)) ||
 		player->GetWaterLevel() >= WL_Eyes)
