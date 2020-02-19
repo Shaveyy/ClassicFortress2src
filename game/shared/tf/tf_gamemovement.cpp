@@ -29,14 +29,14 @@
 #include "team.h"
 #endif
 
-ConVar	clas_autohop("clas_autohop", "1", FCVAR_REPLICATED ); // not being used atm
+ConVar	clas_autohop("clas_autohop", "1", FCVAR_REPLICATED | FCVAR_CHEAT); // not being used atm
 ConVar	tf_maxspeed("tf_maxspeed", "400", FCVAR_NOTIFY | FCVAR_REPLICATED | FCVAR_CHEAT | FCVAR_DEVELOPMENTONLY);
 ConVar	tf_showspeed("tf_showspeed", "0", FCVAR_REPLICATED | FCVAR_DEVELOPMENTONLY);
 ConVar	tf_avoidteammates("tf_avoidteammates", "1", FCVAR_REPLICATED | FCVAR_CHEAT | FCVAR_DEVELOPMENTONLY);
 ConVar  tf_solidobjects("tf_solidobjects", "1", FCVAR_REPLICATED | FCVAR_CHEAT | FCVAR_DEVELOPMENTONLY);
 ConVar	tf_clamp_back_speed("tf_clamp_back_speed", "0.9", FCVAR_REPLICATED | FCVAR_DEVELOPMENTONLY);
 ConVar  tf_clamp_back_speed_min("tf_clamp_back_speed_min", "100", FCVAR_REPLICATED | FCVAR_DEVELOPMENTONLY);
-ConVar	clas_doublejump("clas_doublejump", "0", FCVAR_REPLICATED);
+ConVar	clas_doublejump("clas_doublejump", "0", FCVAR_REPLICATED | FCVAR_CHEAT);
 
 #define TF_MAX_SPEED   400
 
