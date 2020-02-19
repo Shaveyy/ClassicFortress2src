@@ -349,7 +349,7 @@ bool CTFGameMovement::CheckJumpButton()
 		if (mv->m_nOldButtons & IN_JUMP) // anti bhop stuff
 			return false;
 	}
-	else if (player->IsPlayerDead())
+	else if (player->pl.deadflag)
 			return false; // adding a second IsPlayerDead() check, for a crash when the player would jump when dead.
 
 	// In air, so ignore jumps (unless you are a scout).
