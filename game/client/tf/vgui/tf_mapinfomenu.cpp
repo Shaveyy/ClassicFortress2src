@@ -519,6 +519,7 @@ static s_MapInfo s_Maps[] = {
 	{	"cp_gravelpit", "Gravel Pit",	"#TF_AttackDefend",		},
 	{	"tc_hydro",		"Hydro",		"#TF_TerritoryControl",	},
 	{	"ctf_well",		"Well (CTF)",	"#Gametype_CTF",		},
+	{	"rock2_b1",		"Rock2",		"#Gametype_CTF",		},
 };
 
 //-----------------------------------------------------------------------------

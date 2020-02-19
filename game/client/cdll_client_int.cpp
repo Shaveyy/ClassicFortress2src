@@ -895,9 +895,9 @@ ISourceVirtualReality *g_pSourceVR = NULL;
 int CHLClient::Init( CreateInterfaceFn appSystemFactory, CreateInterfaceFn physicsFactory, CGlobalVarsBase *pGlobals )
 {
 #ifdef linux
-	Msg("I noticed you're on Linux! If you have any trouble Linux wise, please create an issue on the github.");
+	Msg("We've noticed you're on Linux! If you have any trouble on Linux, please create an issue on the github.");
 #elif APPLE
-	Msg("I noticed you're on MacOS! If you have any trouble MacOS wise, please create an issue on github.")
+	Msg("We've noticed you're on MacOS! If you have any trouble on MacOS, please create an issue on github.")
 #endif // We've covered both main OS's so we be ggggggood. B)
 
 	InitCRTMemDebug();
