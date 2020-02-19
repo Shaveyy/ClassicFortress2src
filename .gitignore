@@ -527,3 +527,5 @@ lib/public/tier1.lib
 lib/public/raytrace.lib
 lib/public/mathlib.lib
 .vs/games/v16/.suo
+.vs/games/v16/.suo
+game/client/client_tf_mod.vcxproj.filters

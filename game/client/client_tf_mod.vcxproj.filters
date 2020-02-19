@@ -3880,13 +3880,13 @@
     <ClCompile Include="..\shared\tf\tf_weapon_nailgun.cpp">
       <Filter>Source Files\TF\Weapon</Filter>
     </ClCompile>
+    <ClCompile Include="..\shared\tf\clas_gamemovement.cpp">
+      <Filter>Source Files\CLAS</Filter>
+    </ClCompile>
     <ClCompile Include="..\shared\clas_baseviewmodel_shared.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\CLAS</Filter>
     </ClCompile>
     <ClCompile Include="..\shared\clas_handviewmodel_shared.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\shared\tf\clas_gamemovement.cpp">
       <Filter>Source Files\CLAS</Filter>
     </ClCompile>
   </ItemGroup>
