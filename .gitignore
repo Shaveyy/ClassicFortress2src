@@ -515,3 +515,14 @@ raytrace/Debug/trace3.obj
 raytrace/Debug/vc120.idb
 raytrace/Debug/vc120.pdb
 raytrace/Release/raytrace.log
+raytrace/Release/trace2.obj
+raytrace/Release/trace3.obj
+raytrace/Release/trace2.obj
+raytrace/Release/trace3.obj
+raytrace/Release/Raytrace.tlog/cl.write.1.tlog
+raytrace/Release/Raytrace.tlog/CL.read.1.tlog
+raytrace/Release/raytrace.obj
+lib/public/vgui_controls.lib
+lib/public/tier1.lib
+lib/public/raytrace.lib
+lib/public/mathlib.lib

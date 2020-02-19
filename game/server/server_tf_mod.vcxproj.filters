@@ -34,6 +34,9 @@
     <Filter Include="VPC Scripts">
       <UniqueIdentifier>{A40EE377-781A-C6B9-0C7C-B3BE118D248E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\CLAS">
+      <UniqueIdentifier>{14fea8ea-a02e-4aec-9bea-6a84fd1bcd45}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\..\lib\public\choreoobjects.lib">
@@ -3163,9 +3166,6 @@
     <ClCompile Include="tf\tf_gameinterface.cpp">
       <Filter>Source Files\TF</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\game\shared\tf\tf_gamemovement.cpp">
-      <Filter>Source Files\TF</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\game\shared\tf\tf_gamerules.cpp">
       <Filter>Source Files\TF</Filter>
     </ClCompile>
@@ -3366,6 +3366,9 @@
     </ClCompile>
     <ClCompile Include="..\shared\clas_baseviewmodel_shared.cpp">
       <Filter>Source Files\TF</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\tf\clas_gamemovement.cpp">
+      <Filter>Source Files\CLAS</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

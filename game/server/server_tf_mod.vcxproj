@@ -846,6 +846,7 @@ exit 1
   <ItemGroup>
     <ClCompile Include="..\shared\clas_baseviewmodel_shared.cpp" />
     <ClCompile Include="..\shared\clas_handviewmodel_shared.cpp" />
+    <ClCompile Include="..\shared\tf\clas_gamemovement.cpp" />
     <ClCompile Include="..\shared\tf\tf_weapon_nailgun.cpp" />
     <ClCompile Include="..\shared\tf\tf_weapon_nailnade.cpp" />
     <ClCompile Include="..\shared\tf\tf_weapon_pipenade.cpp" />
@@ -1387,7 +1388,6 @@ exit 1
     <ClCompile Include="tf\tf_fx.cpp" />
     <ClCompile Include="..\..\game\shared\tf\tf_fx_shared.cpp" />
     <ClCompile Include="tf\tf_gameinterface.cpp" />
-    <ClCompile Include="..\..\game\shared\tf\tf_gamemovement.cpp" />
     <ClCompile Include="..\..\game\shared\tf\tf_gamerules.cpp" />
     <ClCompile Include="tf\tf_gamestats.cpp" />
     <ClCompile Include="..\..\game\shared\tf\tf_gamestats_shared.cpp">

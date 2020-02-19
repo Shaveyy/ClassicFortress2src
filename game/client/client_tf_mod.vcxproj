@@ -1522,7 +1522,7 @@ exit 1
     <ClCompile Include="..\..\game\shared\tf\tf_fx_shared.cpp" />
     <ClCompile Include="tf\tf_fx_taunteffects.cpp" />
     <ClCompile Include="tf\tf_fx_tracers.cpp" />
-    <ClCompile Include="..\..\game\shared\tf\tf_gamemovement.cpp" />
+    <ClCompile Include="..\shared\tf\clas_gamemovement.cpp" />
     <ClCompile Include="..\..\game\shared\tf\tf_gamerules.cpp" />
     <ClCompile Include="..\..\game\shared\tf\tf_gamestats_shared.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>

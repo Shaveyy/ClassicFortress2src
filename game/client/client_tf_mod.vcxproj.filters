@@ -55,6 +55,9 @@
     <Filter Include="VPC Scripts">
       <UniqueIdentifier>{A40EE377-781A-C6B9-0C7C-B3BE118D248E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\CLAS">
+      <UniqueIdentifier>{4a48efe9-c3d7-43af-9902-e46e844e1420}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\..\lib\public\bitmap.lib">
@@ -3565,9 +3568,6 @@
     <ClCompile Include="tf\tf_fx_tracers.cpp">
       <Filter>Source Files\TF</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\game\shared\tf\tf_gamemovement.cpp">
-      <Filter>Source Files\TF</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\game\shared\tf\tf_gamerules.cpp">
       <Filter>Source Files\TF</Filter>
     </ClCompile>
@@ -3877,14 +3877,17 @@
     <ClCompile Include="..\shared\tf\tf_weapon_nailnade.cpp">
       <Filter>Source Files\TF\Weapon</Filter>
     </ClCompile>
+    <ClCompile Include="..\shared\tf\tf_weapon_nailgun.cpp">
+      <Filter>Source Files\TF\Weapon</Filter>
+    </ClCompile>
     <ClCompile Include="..\shared\clas_baseviewmodel_shared.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\shared\clas_handviewmodel_shared.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\shared\tf\tf_weapon_nailgun.cpp">
-      <Filter>Source Files\TF\Weapon</Filter>
+    <ClCompile Include="..\shared\tf\clas_gamemovement.cpp">
+      <Filter>Source Files\CLAS</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
