@@ -529,3 +529,6 @@ lib/public/mathlib.lib
 .vs/games/v16/.suo
 .vs/games/v16/.suo
 game/client/client_tf_mod.vcxproj.filters
+.vs/games/v16/.suo
+raytrace/Release/raytrace.log
+raytrace/Release/Raytrace.tlog/custombuild.write.1.tlog
