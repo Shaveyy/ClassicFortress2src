@@ -373,3 +373,7 @@ lib/public/tier1.lib
 mathlib/mathlib.vcxproj
 lib/public/raytrace.lib
 lib/public/mathlib.lib
+*.log
+*.obj
+*.tlog
+*.lastbuildstate
