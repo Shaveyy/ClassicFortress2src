@@ -39,7 +39,7 @@ string IRC_Message;
 int nDataLength;
 char buffer[100000];
 int i = 0;
-ConVar clas_twitchchannel("clas_twitchchannel", "loltyler1", FCVAR_DEVELOPMENTONLY | FCVAR_CHEAT, "Twitch Channel to connect to.");
+ConVar clas_twitchchannel("clas_twitchchannel", "vinesauce", 0, "TTV channel to connect to.");
 string channeltojoin = "JOIN #" + (string)clas_twitchchannel.GetString() + "\r\n";// all channel names MUST be lowercase and start with # or irc freaks out.
    
    // IRC url
@@ -68,7 +68,7 @@ string parseMessage(string msg) {
     return "reg error \r\n";
 }
 
-int IRC::CreateConnection() {
+void IRC::CreateConnection() {
     std::thread connection (StartIRC);
     connection.detach();// We detach it from the current thread, so we dont stop the current thread dead in its tracks!
 }

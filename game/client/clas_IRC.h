@@ -6,6 +6,6 @@ namespace IRC
 	void CloseConnection();
 	void RecvMessage();
 	void PostMessageToChat();
-	int CreateConnection();
+	void CreateConnection();
 }
 #endif

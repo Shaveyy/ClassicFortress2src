@@ -55,6 +55,9 @@
     <Filter Include="VPC Scripts">
       <UniqueIdentifier>{A40EE377-781A-C6B9-0C7C-B3BE118D248E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\CLASSIC">
+      <UniqueIdentifier>{5898a134-5ca5-404c-82dc-e75ecac4f628}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\..\lib\public\bitmap.lib">
@@ -2159,6 +2162,9 @@
     <ClInclude Include="toolframework_client.h">
       <Filter>Tool Framework</Filter>
     </ClInclude>
+    <ClInclude Include="clas_IRC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mp3player.cpp">
@@ -2492,9 +2498,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cl_mat_stub.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\game\shared\clas_baseviewmodel_shared.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="classmap.cpp">
@@ -3864,6 +3867,12 @@
     </ClCompile>
     <ClCompile Include="toolframework_client.cpp">
       <Filter>Tool Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="clas_IRC.cpp">
+      <Filter>Source Files\CLASSIC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\shared\clas_baseviewmodel_shared.cpp">
+      <Filter>Source Files\CLASSIC</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

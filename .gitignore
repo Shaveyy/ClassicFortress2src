@@ -24,6 +24,7 @@ ipch
 *.vcxproj.filters
 *.pdb
 *.lib
+*.sln
 
 # Visual Studio 2017
 *.VC.db
@@ -363,3 +364,12 @@ raytrace/Debug/Raytrace.tlog/cl.write.1.tlog
 raytrace/Debug/Raytrace.tlog/CL.read.1.tlog
 lib/public/vgui_controls.lib
 lib/public/tier1.lib
+*.tlog
+raytrace/Debug/trace3.obj
+raytrace/Debug/trace2.obj
+*.obj
+lib/public/vgui_controls.lib
+lib/public/tier1.lib
+mathlib/mathlib.vcxproj
+lib/public/raytrace.lib
+lib/public/mathlib.lib
