@@ -55,9 +55,6 @@
     <Filter Include="VPC Scripts">
       <UniqueIdentifier>{A40EE377-781A-C6B9-0C7C-B3BE118D248E}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\CLAS">
-      <UniqueIdentifier>{4a48efe9-c3d7-43af-9902-e46e844e1420}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\..\lib\public\bitmap.lib">
@@ -168,6 +165,9 @@
       <Filter>Game Shared Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\game\shared\choreoscene.h">
+      <Filter>Game Shared Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\shared\clas_baseviewmodel_shared.h">
       <Filter>Game Shared Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\game\shared\collisionproperty.h">
@@ -2159,21 +2159,6 @@
     <ClInclude Include="toolframework_client.h">
       <Filter>Tool Framework</Filter>
     </ClInclude>
-    <ClInclude Include="..\shared\tf\tf_weapon_pipenade.h">
-      <Filter>Source Files\TF\Weapon</Filter>
-    </ClInclude>
-    <ClInclude Include="..\shared\tf\tf_weapon_nailnade.h">
-      <Filter>Source Files\TF\Weapon</Filter>
-    </ClInclude>
-    <ClInclude Include="..\shared\clas_baseviewmodel_shared.h">
-      <Filter>Game Shared Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\shared\tf\tf_weapon_nailgun.h">
-      <Filter>Source Files\TF\Weapon</Filter>
-    </ClInclude>
-    <ClInclude Include="clas_IRC.h">
-      <Filter>Source Files\CLAS</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mp3player.cpp">
@@ -2507,6 +2492,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cl_mat_stub.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\shared\clas_baseviewmodel_shared.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="classmap.cpp">
@@ -3532,6 +3520,9 @@
     <ClCompile Include="tf\c_tf_team.cpp">
       <Filter>Source Files\TF</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\game\shared\tf\clas_gamemovement.cpp">
+      <Filter>Source Files\TF</Filter>
+    </ClCompile>
     <ClCompile Include="tf\clientmode_tf.cpp">
       <Filter>Source Files\TF</Filter>
     </ClCompile>
@@ -3873,27 +3864,6 @@
     </ClCompile>
     <ClCompile Include="toolframework_client.cpp">
       <Filter>Tool Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\shared\tf\tf_weapon_pipenade.cpp">
-      <Filter>Source Files\TF\Weapon</Filter>
-    </ClCompile>
-    <ClCompile Include="..\shared\tf\tf_weapon_nailnade.cpp">
-      <Filter>Source Files\TF\Weapon</Filter>
-    </ClCompile>
-    <ClCompile Include="..\shared\tf\tf_weapon_nailgun.cpp">
-      <Filter>Source Files\TF\Weapon</Filter>
-    </ClCompile>
-    <ClCompile Include="..\shared\tf\clas_gamemovement.cpp">
-      <Filter>Source Files\CLAS</Filter>
-    </ClCompile>
-    <ClCompile Include="..\shared\clas_baseviewmodel_shared.cpp">
-      <Filter>Source Files\CLAS</Filter>
-    </ClCompile>
-    <ClCompile Include="..\shared\clas_handviewmodel_shared.cpp">
-      <Filter>Source Files\CLAS</Filter>
-    </ClCompile>
-    <ClCompile Include="clas_IRC.cpp">
-      <Filter>Source Files\CLAS</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

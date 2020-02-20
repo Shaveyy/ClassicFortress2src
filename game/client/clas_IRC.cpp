@@ -1,4 +1,5 @@
 #include "cbase.h"
+#include "dbg.h"
 #include <string.h>
 #include <winsock2.h>
 #include <windows.h>
@@ -7,7 +8,6 @@
 #include "clas_irc.h"
 #include <regex>
 #include <thread>
-#include "dbg.h"
 /*
 ================================================================
 Helpful links:
@@ -29,8 +29,7 @@ WSACleanup();
 closesocket(Socket);
 Move this to its own function, since we dont really need to close the socket unless the game is closed.
 ================================================================
-TODO:
-Add SSL to prevent man in the midddle attacks to get our OAUTH.
+TODO: Add SSL to securely send our OAUTH token. https://github.com/openssl/openssl
 */
 using namespace std;
 #pragma comment(lib,"ws2_32.lib")
@@ -40,7 +39,15 @@ string IRC_Message;
 int nDataLength;
 char buffer[100000];
 int i = 0;
-string channeltojoin = "JOIN #rocketleague\r\n";// all channel names MUST be lowercase or irc freaks out.
+ConVar clas_twitchchannel("clas_twitchchannel", "loltyler1", FCVAR_DEVELOPMENTONLY | FCVAR_CHEAT, "Twitch Channel to connect to.");
+string channeltojoin = "JOIN #" + (string)clas_twitchchannel.GetString() + "\r\n";// all channel names MUST be lowercase and start with # or irc freaks out.
+   
+   // IRC url
+string url = "irc.chat.twitch.tv";
+string user_string = "NICK shaveyy\r\n"; // username can be anything lowercase!
+
+string pass_string = "PASS oauth:waj3xbpmhf2laqc9o52h2xsvrze9qd\r\n"; // go to this site for your oauth https://twitchapps.com/tmi/, OR you can get your oauth with the twitch api at https://dev.twitch.tv/docs/authentication/getting-tokens-oauth
+
 void PostMessageToChat(string msg, string channel) {
     string actualmsg = "PRIVMSG #" + channel + " : " + msg + "\r\n";
     send(Socket, actualmsg.c_str(), strlen(actualmsg.c_str()), 0);
@@ -60,24 +67,19 @@ string parseMessage(string msg) {
     */
     return "reg error \r\n";
 }
+
 int IRC::CreateConnection() {
     std::thread connection (StartIRC);
     connection.detach();// We detach it from the current thread, so we dont stop the current thread dead in its tracks!
 }
-void IRC::StartIRC() {
 
+void IRC::StartIRC() {
+    //channeltojoin = "JOIN #" + (string)clas_twitchchannel.GetString() + "\r\n";
     WSADATA wsaData;
     SOCKADDR_IN SockAddr;
-    int lineCount = 0;
-    int rowCount = 0;
     struct hostent* host;
     locale local;
-
-    // IRC url
-    string url = "irc.chat.twitch.tv";
-    string userconnectionstring1 = "NICK shaveyy\r\n"; // username can be anything lowercase!
-    string userconnectionstring2 = "PASS oauth:waj3xbpmhf2laqc9o52h2xsvrze9qd\r\n"; // go to this site for your oauth https://twitchapps.com/tmi/, OR you can get your oauth with the twitch api at https://dev.twitch.tv/docs/authentication/getting-tokens-oauth
-
+    
     WSAStartup(MAKEWORD(2, 2), &wsaData);
     Socket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     host = gethostbyname(url.c_str());
@@ -89,27 +91,25 @@ void IRC::StartIRC() {
         cout << "Could not connect";
 
     // Send LOGIN strings.
-    send(Socket, userconnectionstring2.c_str(), strlen(userconnectionstring2.c_str()), 0);
-    send(Socket, userconnectionstring1.c_str(), strlen(userconnectionstring1.c_str()), 0);
+    send(Socket, user_string.c_str(), strlen(user_string.c_str()), 0);
+    send(Socket, pass_string.c_str(), strlen(pass_string.c_str()), 0);
     // Send channel we want to join.
     send(Socket, channeltojoin.c_str(), strlen(channeltojoin.c_str()), 0);
     string lol = "PRIVMSG #dwight_lol :Me :)\r\n";
     //send(Socket, lol.c_str(), strlen(lol.c_str()), 0);
     Msg("Connected to twitch!\r\n");
+	
     RecvMessage();
 }
-string newline = "\r\n";
 void IRC::RecvMessage() {
   while ((nDataLength = recv(Socket, buffer, 10000, 0)) > 0) {
             int i = 0;
-            int ii = 0;
             while (buffer[i] >= 1 || buffer[i] == '\n' || buffer[i] == '\r') {
                 IRC_Message += buffer[i];
                 i += 1;
                 if (buffer == "PING")
                     send(Socket, "PONG\r\n", strlen("PONG\r\n"), 0);
             }
-            ii++;
             Msg(parseMessage(IRC_Message).c_str());
             Msg("\r\n");
             IRC_Message.clear();

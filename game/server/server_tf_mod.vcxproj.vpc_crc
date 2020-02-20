@@ -1,8 +1,8 @@
 [vpc crc file version 2]
-b9c20ec3 C:\Users\pokeg\Desktop\classic tf2\src\devtools\bin\vpc.exe
+b9c20ec3 C:\Users\pokeg\Desktop\classictf2\src\devtools\bin\vpc.exe
 _Nc_VS2013/vpcgame:tf_mod_
-0d9a52f0 server_tf_mod.vpc
-cd2921c2 ..\..\game\server\server_base.vpc
+042f8a13 server_tf_mod.vpc
+2e0c6acb ..\..\game\server\server_base.vpc
 4832e67a ..\..\vpc_scripts\source_dll_base.vpc
 d752cf80 ..\..\vpc_scripts\platform_dirs.vpc
 6c4a5ff1 ..\..\vpc_scripts\source_base.vpc

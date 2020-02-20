@@ -1,5 +1,13 @@
-﻿  Running VPC CRC Check - raytrace.vpc
-  raytrace.cpp
-  trace2.cpp
-  trace3.cpp
-  raytrace.vcxproj -> C:\Users\pokeg\Desktop\classic tf2\src\raytrace\..\lib\public\.\raytrace.lib
+﻿  Unable to load C:\Users\pokeg\Desktop\classic tf2\src\devtools\bin\vpc.exe for comparison.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(139,5): error MSB3073: The command "if EXIST ..\lib\public\.\raytrace.lib ( for /f "delims=" %%A in ('attrib "..\lib\public\.\raytrace.lib"') do set valveTmpIsReadOnly="%%A"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(139,5): error MSB3073: ) else ( if not EXIST ..\lib\public\. mkdir ..\lib\public\. )
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(139,5): error MSB3073: set valveTmpIsReadOnlyLetter=%valveTmpIsReadOnly:~6,1%
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(139,5): error MSB3073: if "%valveTmpIsReadOnlyLetter%"=="R" (
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(139,5): error MSB3073:     attrib -r ..\lib\public\.\raytrace.lib
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(139,5): error MSB3073:     ..\devtools\bin\gnu\touch.exe -d "1999-01-01" ..\lib\public\.\raytrace.lib
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(139,5): error MSB3073:     attrib +r ..\lib\public\.\raytrace.lib
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(139,5): error MSB3073: )
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(139,5): error MSB3073: if exist "..\devtools\bin\vpc.exe" "..\devtools\bin\vpc.exe" -crc2 "raytrace.vcxproj"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(139,5): error MSB3073: if ERRORLEVEL 1 exit /b 1
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(139,5): error MSB3073: 
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(139,5): error MSB3073: :VCEnd" exited with code 1.
