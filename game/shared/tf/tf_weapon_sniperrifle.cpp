@@ -318,7 +318,8 @@ void CTFSniperRifle::ItemPostFrame( void )
 	if (m_flChargedDamage >= 20)
 		CreateSniperDot();
 	if (pPlayer->m_afButtonPressed & IN_ATTACK) {
-		if (pPlayer->GetLocalVelocity().Length() <= 200)
+		// if holders velocity is 310 (sniper's max speed +10) dont allow
+		if (pPlayer->GetLocalVelocity().Length() < 310)
 			pPlayer->m_Shared.AddCond(TF_COND_AIMING);
 			pPlayer->TeamFortress_SetSpeed();
 		// start charging

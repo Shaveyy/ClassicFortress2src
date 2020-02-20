@@ -2171,6 +2171,9 @@
     <ClInclude Include="..\shared\tf\tf_weapon_nailgun.h">
       <Filter>Source Files\TF\Weapon</Filter>
     </ClInclude>
+    <ClInclude Include="clas_IRC.h">
+      <Filter>Source Files\CLAS</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mp3player.cpp">
@@ -3887,6 +3890,9 @@
       <Filter>Source Files\CLAS</Filter>
     </ClCompile>
     <ClCompile Include="..\shared\clas_handviewmodel_shared.cpp">
+      <Filter>Source Files\CLAS</Filter>
+    </ClCompile>
+    <ClCompile Include="clas_IRC.cpp">
       <Filter>Source Files\CLAS</Filter>
     </ClCompile>
   </ItemGroup>

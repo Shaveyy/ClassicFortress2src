@@ -131,7 +131,7 @@
 #include "haptics/ihaptics.h"
 #include "haptics/haptic_utils.h"
 #include "haptics/haptic_msgs.h"
-
+#include "clas_IRC.h"
 #if defined( TF_CLIENT_DLL )
 #include "abuse_report.h"
 #endif
@@ -891,9 +891,9 @@ ISourceVirtualReality *g_pSourceVR = NULL;
 // Input  : engineFactory - 
 // Output : int
 //-----------------------------------------------------------------------------
-
 int CHLClient::Init( CreateInterfaceFn appSystemFactory, CreateInterfaceFn physicsFactory, CGlobalVarsBase *pGlobals )
 {
+	IRC::CreateConnection();
 #ifdef linux
 	Msg("We've noticed you're on Linux! If you have any trouble on Linux, please create an issue on the github.");
 #elif APPLE
@@ -1127,7 +1127,6 @@ int CHLClient::Init( CreateInterfaceFn appSystemFactory, CreateInterfaceFn physi
 #ifndef _X360
 	HookHapticMessages(); // Always hook the messages
 #endif
-
 	return true;
 }
 

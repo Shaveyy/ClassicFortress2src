@@ -383,6 +383,7 @@ exit 1
     <ClInclude Include="..\shared\tf\tf_weapon_nailgun.h" />
     <ClInclude Include="..\shared\tf\tf_weapon_nailnade.h" />
     <ClInclude Include="..\shared\tf\tf_weapon_pipenade.h" />
+    <ClInclude Include="clas_IRC.h" />
     <ClInclude Include="game_controls\baseviewport.h" />
     <ClInclude Include="game_controls\clientscoreboarddialog.h" />
     <ClInclude Include="game_controls\commandmenu.h" />
@@ -957,6 +958,7 @@ exit 1
     <ClCompile Include="..\shared\tf\tf_weapon_nailgun.cpp" />
     <ClCompile Include="..\shared\tf\tf_weapon_nailnade.cpp" />
     <ClCompile Include="..\shared\tf\tf_weapon_pipenade.cpp" />
+    <ClCompile Include="clas_IRC.cpp" />
     <ClCompile Include="mp3player.cpp" />
     <ClCompile Include="replay\cdll_replay.cpp" />
     <ClCompile Include="replay\replaycamera.cpp" />
