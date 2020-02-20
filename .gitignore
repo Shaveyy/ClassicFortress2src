@@ -346,3 +346,20 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+*.obj
+*.lib
+*.obj
+*.idb
+*.pdb
+*.tlog
+lib/public/mathlib.lib
+lib/public/raytrace.lib
+raytrace/Debug/raytrace.obj
+raytrace/Debug/trace2.obj
+raytrace/Debug/trace3.obj
+raytrace/Debug/vc120.idb
+raytrace/Debug/vc120.pdb
+raytrace/Debug/Raytrace.tlog/cl.write.1.tlog
+raytrace/Debug/Raytrace.tlog/CL.read.1.tlog
+lib/public/vgui_controls.lib
+lib/public/tier1.lib
