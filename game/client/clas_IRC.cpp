@@ -22,16 +22,16 @@ https://dev.twitch.tv/docs/irc/commands
 Membership guide (weird ttv stuff).
 https://dev.twitch.tv/docs/irc/membership
 ================================================================
-Twitch sends a PING message every 10 minutes, respond with PONG.
+Twitch sends a PING message every 10 minutes, respond with PONG
 if (buffer == "PING")
    send(Socket, "PONG\r\n", strlen("PONG\r\n"), 0);
 ================================================================
 WSACleanup();
 closesocket(Socket);
-Move this to its own function, since we dont really need to close the socket unless the game is closed.
+Move this to its own function, since we dont really need to close the socket unless the game is closed
 ================================================================
 TODO: UNIX SUPPORT!!!
-TODO: Add SSL to prevent man in the midddle attacks to get our OAUTH.
+TODO: Add SSL to prevent man in the midddle attacks to get our OAUTH
 */
 using namespace std;
 #pragma comment(lib,"ws2_32.lib")
@@ -59,7 +59,7 @@ string parseMessage(string msg) {
     and match[4] is message.
     my regex is a bit broken but it works, so yeah!
     */
-    return "reg error \r\n";
+    return "reg error ";
 }
 int IRC::CreateConnection() {
     std::thread connection(StartIRC);
@@ -75,13 +75,13 @@ void IRC::StartIRC() {
 	
     // IRC url
     string url = "irc.chat.twitch.tv";
-    CBasePlayer* pPlayer = C_BasePlayer::GetLocalPlayer();
     string s_nick = "NICK cf2bot\r\n"; // username can be anything lowercase!
     string s_pass = "PASS oauth:waj3xbpmhf2laqc9o52h2xsvrze9qd\r\n"; // go to this site for your oauth https://twitchapps.com/tmi/, OR you can get your oauth with the twitch api at https://dev.twitch.tv/docs/authentication/getting-tokens-oauth
 
     WSAStartup(MAKEWORD(2, 2), &wsaData);
-    Socket = socket(AF_INET, SOCK_STREAM, 6); // you can either say 6 (TCP) or IPPROTO_TCP (enum with value 6).
+    Socket = socket(AF_INET, SOCK_STREAM, 6); // you can either say 6 (TCP) or IPPROTO_TCP (enum with value 6)
     host = gethostbyname(url.c_str());
+	
     SockAddr.sin_port = htons(6667);
     SockAddr.sin_family = AF_INET;
     SockAddr.sin_addr.s_addr = *((unsigned long*)host->h_addr);
