@@ -840,14 +840,12 @@ bool IsEngineThreaded()
 //-----------------------------------------------------------------------------
 // Constructor
 //-----------------------------------------------------------------------------
-const DiscordUser* connectedUserr;
 static void HandleDiscordReady(const DiscordUser* connectedUser)
 {
-	connectedUser = connectedUserr;
-	Msg("Discord RPC: Connected to user %s#%s - %s\n",
-		connectedUser->username,
-		connectedUser->discriminator,
-		connectedUser->userId);
+	Msg("Discord RPC: Connected to user ");
+	Msg(connectedUser->username);
+	Msg("#");
+	Msg(connectedUser->userId);
 }
 
 static void HandleDiscordDisconnected(int errcode, const char* message)

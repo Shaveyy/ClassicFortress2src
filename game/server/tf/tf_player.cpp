@@ -50,7 +50,6 @@
 #include "cdll_int.h"
 #include "tf_weaponbase.h"
 #include "clas_baseviewmodel_shared.h"
-
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
@@ -781,9 +780,10 @@ void CTFPlayer::Spawn()
 	// Create our off hand viewmodel if necessary
 	CreateViewModel( 1 );
 	// Make sure it has no model set, in case it had one before
+
+	// Select the viewmodel for the current class
 	GetViewModel(1)->SetModel( "" );
-	// Select model for current player class
-	switch (GetPlayerClass()->GetClassIndex()) {
+	switch (GetPlayerClass()->GetClassIndex()) { // TODO: Clean this up a bit
 	case TF_CLASS_SCOUT:
 		GetViewModel(1)->SetModel("models/weapons/c_models/c_scout_arms.mdl");
 		break;

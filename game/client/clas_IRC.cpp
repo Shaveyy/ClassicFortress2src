@@ -7,7 +7,11 @@
 #include "clas_irc.h"
 #include <regex>
 #include <thread>
+
+#include "clientmode.h"
 #include "dbg.h"
+#include "vgui_controls/Frame.h"
+#include "tier0/memdbgon.h"
 /*
 ================================================================
 Helpful links:
@@ -26,8 +30,8 @@ WSACleanup();
 closesocket(Socket);
 Move this to its own function, since we dont really need to close the socket unless the game is closed.
 ================================================================
-TODO:
-Add SSL to prevent man in the midddle attacks to get our OAUTH.
+TODO: UNIX SUPPORT!!!
+TODO: Add SSL to prevent man in the midddle attacks to get our OAUTH.
 */
 using namespace std;
 #pragma comment(lib,"ws2_32.lib")
@@ -37,7 +41,7 @@ string IRC_Message;
 int nDataLength;
 char buffer[100000];
 int i = 0;
-string channeltojoin = "JOIN #rocketleague\r\n";// all channel names MUST be lowercase or irc freaks out.
+string channeltojoin = "JOIN #loltyler1\r\n";// all channel names MUST be lowercase or irc freaks out.
 void PostMessageToChat(string msg, string channel) {
     string actualmsg = "PRIVMSG #" + channel + " : " + msg + "\r\n";
     send(Socket, actualmsg.c_str(), strlen(actualmsg.c_str()), 0);
@@ -66,18 +70,17 @@ void IRC::StartIRC() {
 
     WSADATA wsaData;
     SOCKADDR_IN SockAddr;
-    int lineCount = 0;
-    int rowCount = 0;
     struct hostent* host;
     locale local;
-
+	
     // IRC url
     string url = "irc.chat.twitch.tv";
-    string userconnectionstring1 = "NICK shaveyy\r\n"; // username can be anything lowercase!
-    string userconnectionstring2 = "PASS oauth:waj3xbpmhf2laqc9o52h2xsvrze9qd\r\n"; // go to this site for your oauth https://twitchapps.com/tmi/, OR you can get your oauth with the twitch api at https://dev.twitch.tv/docs/authentication/getting-tokens-oauth
+    CBasePlayer* pPlayer = C_BasePlayer::GetLocalPlayer();
+    string s_nick = "NICK cf2bot\r\n"; // username can be anything lowercase!
+    string s_pass = "PASS oauth:waj3xbpmhf2laqc9o52h2xsvrze9qd\r\n"; // go to this site for your oauth https://twitchapps.com/tmi/, OR you can get your oauth with the twitch api at https://dev.twitch.tv/docs/authentication/getting-tokens-oauth
 
     WSAStartup(MAKEWORD(2, 2), &wsaData);
-    Socket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+    Socket = socket(AF_INET, SOCK_STREAM, 6); // you can either say 6 (TCP) or IPPROTO_TCP (enum with value 6).
     host = gethostbyname(url.c_str());
     SockAddr.sin_port = htons(6667);
     SockAddr.sin_family = AF_INET;
@@ -87,27 +90,22 @@ void IRC::StartIRC() {
         cout << "Could not connect";
 
     // Send LOGIN strings.
-    send(Socket, userconnectionstring2.c_str(), strlen(userconnectionstring2.c_str()), 0);
-    send(Socket, userconnectionstring1.c_str(), strlen(userconnectionstring1.c_str()), 0);
+    send(Socket, s_nick.c_str(), strlen(s_nick.c_str()), 0);
+    send(Socket, s_pass.c_str(), strlen(s_pass.c_str()), 0);
     // Send channel we want to join.
     send(Socket, channeltojoin.c_str(), strlen(channeltojoin.c_str()), 0);
-    string lol = "PRIVMSG #dwight_lol :Me :)\r\n";
-    //send(Socket, lol.c_str(), strlen(lol.c_str()), 0);
     Msg("Connected to twitch!\r\n");
     RecvMessage();
 }
-string newline = "\r\n";
 void IRC::RecvMessage() {
     while ((nDataLength = recv(Socket, buffer, 10000, 0)) > 0) {
         int i = 0;
-        int ii = 0;
         while (buffer[i] >= 1 || buffer[i] == '\n' || buffer[i] == '\r') {
             IRC_Message += buffer[i];
             i += 1;
             if (buffer == "PING")
                 send(Socket, "PONG\r\n", strlen("PONG\r\n"), 0);
         }
-        ii++;
         Msg(parseMessage(IRC_Message).c_str());
         Msg("\r\n");
         IRC_Message.clear();
