@@ -2165,6 +2165,9 @@
     <ClInclude Include="clas_IRC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\shared\func_no_jump.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mp3player.cpp">
@@ -3873,6 +3876,12 @@
     </ClCompile>
     <ClCompile Include="..\..\game\shared\clas_baseviewmodel_shared.cpp">
       <Filter>Source Files\CLASSIC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\clas_handviewmodel_shared.cpp">
+      <Filter>Source Files\CLASSIC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\func_no_jump.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

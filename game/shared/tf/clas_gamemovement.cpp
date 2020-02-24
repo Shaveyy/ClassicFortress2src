@@ -5,6 +5,7 @@
 // $NoKeywords: $
 //=============================================================================
 #include "cbase.h"
+
 #include "gamemovement.h"
 #include "tf_gamerules.h"
 #include "tf_shareddefs.h"
@@ -16,7 +17,7 @@
 #include "particle_parse.h"
 #include "baseobject_shared.h"
 #include "coordsize.h"
-
+#include "func_no_jump.h"
 #ifdef CLIENT_DLL
 #include "c_tf_player.h"
 #include "c_world.h"
@@ -327,14 +328,14 @@ void CTFGameMovement::PreventBunnyJumping()
 }
 bool CTFGameMovement::CheckJumpButton()
 {
+	if (InNoJumpZone(player))
+		return false;
 	// Are we dead?  Then we cannot jump.
 	if (player->pl.deadflag)
 		return false;
-
 	// Check to see if we are in water.
 	if (!CheckWaterJumpButton())
 		return false;
-
 	// Cannot jump while taunting
 	if (m_pTFPlayer->m_Shared.InCond(TF_COND_TAUNTING))
 		return false;

@@ -42,7 +42,7 @@ int nDataLength;
 char buffer[100000];
 int i = 0;
 string channeltojoin = "JOIN #loltyler1\r\n";// all channel names MUST be lowercase or irc freaks out.
-void PostMessageToChat(string msg, string channel) {
+void sendMsg(string channel, string msg) {
     string actualmsg = "PRIVMSG #" + channel + " : " + msg + "\r\n";
     send(Socket, actualmsg.c_str(), strlen(actualmsg.c_str()), 0);
 

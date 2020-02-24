@@ -91,7 +91,6 @@ public:
 	virtual bool Reload( void );
 	virtual bool CanHolster( void ) const;
 	virtual bool Holster( CBaseCombatWeapon *pSwitchingTo );
-
 	void		 HandleZooms( void );
 	virtual void ItemPostFrame( void );
 	virtual bool Lower( void );
@@ -99,7 +98,8 @@ public:
 	virtual int	GetDamageType() const;
 
 	virtual void WeaponReset( void );
-
+	
+	void		 ProcessAnimationEvents(void);
 	virtual bool CanFireCriticalShot( bool bIsHeadshot = false );
 
 #ifdef CLIENT_DLL

@@ -388,6 +388,7 @@ exit 1
     <ClInclude Include="..\..\game\shared\weapon_ifmsteadycam.h" />
     <ClInclude Include="..\..\game\shared\weapon_parse.h" />
     <ClInclude Include="..\..\game\shared\weapon_proficiency.h" />
+    <ClInclude Include="..\shared\func_no_jump.h" />
     <ClInclude Include="clas_IRC.h" />
     <ClInclude Include="game_controls\baseviewport.h" />
     <ClInclude Include="game_controls\clientscoreboarddialog.h" />
@@ -959,6 +960,8 @@ exit 1
     <ClInclude Include="toolframework_client.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\shared\clas_handviewmodel_shared.cpp" />
+    <ClCompile Include="..\shared\func_no_jump.cpp" />
     <ClCompile Include="clas_IRC.cpp" />
     <ClCompile Include="mp3player.cpp" />
     <ClCompile Include="replay\cdll_replay.cpp" />
