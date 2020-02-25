@@ -220,12 +220,10 @@ void CHudWeaponSelection::Paint()
 	Color colred = Color(255, 64, 64, 255);
 	Color colblue = Color(153, 204, 255, 255);
 	int t_Team = pPlayer->GetTeamNumber();
-	if (t_Team == TF_TEAM_RED) {
+	if (t_Team == TF_TEAM_RED) 
 		SetFgColor(colred);
-	}
-	else if (t_Team == TF_TEAM_BLUE) {
+	else if (t_Team == TF_TEAM_BLUE) 
 		SetFgColor(colblue);
-	}
 	Color col = GetFgColor();
 	// interpolate the selected box size between the small box size and the large box size
 	// interpolation has been removed since there is no weapon pickup animation anymore, so it's all at the largest size
@@ -262,8 +260,8 @@ void CHudWeaponSelection::Paint()
 				if (pWeapon->GetSpriteActive())
 				{
 					// find the center of the box to draw in
-					int iconWidth = pWeapon->GetSpriteActive()->Width();
-					int iconHeight = pWeapon->GetSpriteActive()->Height();
+					int iconWidth = pWeapon->GetSpriteActive()->Width() - (iconWidth /2);
+					int iconHeight = pWeapon->GetSpriteActive()->Height() - (iconHeight /2);
 
 					int x_offs = (largeBoxWide - iconWidth) / 2;
 					int y_offs = (largeBoxTall - iconHeight) / 2;
@@ -271,13 +269,10 @@ void CHudWeaponSelection::Paint()
 					if (!pWeapon->CanBeSelected())
 					{
 						// unselectable weapon, display as such
-						if (t_Team == TF_TEAM_BLUE) {
+						if (t_Team == TF_TEAM_BLUE) 
 							col = Color(colblue[0], 0, 0, col[3]);
-
-						}
-						else if (t_Team == TF_TEAM_RED) {
+						else if (t_Team == TF_TEAM_RED) 
 							col = Color(colred[0], 0, 0, col[3]);
-						}
 					}
 					else if (pWeapon == pSelectedWeapon)
 					{
@@ -289,7 +284,7 @@ void CHudWeaponSelection::Paint()
 					}
 
 					// draw the inactive version
-					pWeapon->GetSpriteInactive()->DrawSelf(xpos + x_offs, ypos + y_offs, col);
+					    pWeapon->GetSpriteInactive()->DrawSelf(xpos + x_offs, ypos + y_offs, col);
 				}
 
 				// draw text
@@ -319,7 +314,10 @@ void CHudWeaponSelection::Paint()
 
 					surface()->DrawSetTextColor(col);
 					surface()->DrawSetTextFont(m_hTextFont);
-
+					if (pPlayer->GetTeamNumber() == TF_TEAM_RED) 
+						surface()->DrawSetTextColor(colred);
+					else
+						surface()->DrawSetTextColor(colblue);
 					// count the position
 					int slen = 0, charCount = 0, maxslen = 0;
 					int firstslen = 0;
@@ -419,7 +417,6 @@ void CHudWeaponSelection::Paint()
 void CHudWeaponSelection::DrawBox(int x, int y, int wide, int tall, Color color, float normalizedAlpha, int number)
 {
 	BaseClass::DrawBox(x, y, wide, tall, color, normalizedAlpha / 255.0f);
-
 	// draw the number
 	if (number >= 0)
 	{
