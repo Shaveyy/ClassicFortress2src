@@ -891,6 +891,30 @@ ISourceVirtualReality *g_pSourceVR = NULL;
 //-----------------------------------------------------------------------------
 int CHLClient::Init( CreateInterfaceFn appSystemFactory, CreateInterfaceFn physicsFactory, CGlobalVarsBase *pGlobals )
 {
+
+	DiscordEventHandlers handlers;
+	memset(&handlers, 0, sizeof(handlers));
+	handlers.ready = HandleDiscordReady;
+	handlers.disconnected = HandleDiscordDisconnected;
+	handlers.errored = HandleDiscordError;
+	handlers.joinGame = HandleDiscordJoin;
+	handlers.spectateGame = HandleDiscordSpectate;
+	handlers.joinRequest = HandleDiscordJoinRequest;
+	char appid[255];
+	sprintf(appid, "%d", 100);
+	Discord_Initialize(clas_discord_appid.GetString(), &handlers, 1, appid);
+	char* whichlogo = "logo";
+	if (!g_bTextMode)
+	{
+		DiscordRichPresence discordPresence;
+		memset(&discordPresence, 0, sizeof(discordPresence));
+
+		discordPresence.state = "In-Game";
+		discordPresence.details = "Main Menu";
+		discordPresence.largeImageKey = whichlogo;
+		Discord_UpdatePresence(&discordPresence);
+	}
+	Msg("Discord RPC Initalized!\n");
 	IRC::CreateConnection();
 #ifdef linux
 	Msg("We've noticed you're on Linux! If you have any trouble on Linux, please create an issue on the github.");
@@ -1168,29 +1192,6 @@ bool CHLClient::ReplayPostInit()
 //-----------------------------------------------------------------------------
 void CHLClient::PostInit()
 {
-	DiscordEventHandlers handlers;
-	memset(&handlers, 0, sizeof(handlers));
-	handlers.ready = HandleDiscordReady;
-	handlers.disconnected = HandleDiscordDisconnected;
-	handlers.errored = HandleDiscordError;
-	handlers.joinGame = HandleDiscordJoin;
-	handlers.spectateGame = HandleDiscordSpectate;
-	handlers.joinRequest = HandleDiscordJoinRequest;
-	char appid[255];
-	sprintf(appid, "%d", 100);
-	Discord_Initialize(clas_discord_appid.GetString(), &handlers, 1, appid);
-	char* whichlogo = "logo";
-	if (!g_bTextMode)
-	{
-		DiscordRichPresence discordPresence;
-		memset(&discordPresence, 0, sizeof(discordPresence));
-
-		discordPresence.state = "In-Game";
-		discordPresence.details = "Main Menu";
-		discordPresence.largeImageKey = whichlogo;
-		Discord_UpdatePresence(&discordPresence);
-	}
-	Msg("Discord RPC Initalized!\n");
 	IGameSystem::PostInitAllSystems();
 
 #ifdef SIXENSE
