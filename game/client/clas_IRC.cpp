@@ -41,7 +41,7 @@ string IRC_Message;
 int nDataLength;
 char buffer[100000];
 int i = 0;
-string channeltojoin = "JOIN #loltyler1\r\n";// all channel names MUST be lowercase or irc freaks out.
+string channeltojoin = "JOIN #vinesauce\r\n";// all channel names MUST be lowercase or irc freaks out.
 void sendMsg(string channel, string msg) {
     string actualmsg = "PRIVMSG #" + channel + " : " + msg + "\r\n";
     send(Socket, actualmsg.c_str(), strlen(actualmsg.c_str()), 0);
@@ -59,7 +59,7 @@ string parseMessage(string msg) {
     and match[4] is message.
     my regex is a bit broken but it works, so yeah!
     */
-    return "reg error ";
+    return msg;
 }
 int IRC::CreateConnection() {
     std::thread connection(StartIRC);
@@ -76,7 +76,7 @@ void IRC::StartIRC() {
     // IRC url
     string url = "irc.chat.twitch.tv";
     string s_nick = "NICK cf2bot\r\n"; // username can be anything lowercase!
-    string s_pass = "PASS oauth:waj3xbpmhf2laqc9o52h2xsvrze9qd\r\n"; // go to this site for your oauth https://twitchapps.com/tmi/, OR you can get your oauth with the twitch api at https://dev.twitch.tv/docs/authentication/getting-tokens-oauth
+    string s_pass = "PASS oauth:gikhnytim5knt4e6j9p9h4og0nt6s8\r\n"; // go to this site for your oauth https://twitchapps.com/tmi/, OR you can get your oauth with the twitch api at https://dev.twitch.tv/docs/authentication/getting-tokens-oauth
 
     WSAStartup(MAKEWORD(2, 2), &wsaData);
     Socket = socket(AF_INET, SOCK_STREAM, 6); // you can either say 6 (TCP) or IPPROTO_TCP (enum with value 6)
@@ -90,8 +90,8 @@ void IRC::StartIRC() {
         cout << "Could not connect";
 
     // Send LOGIN strings.
-    send(Socket, s_nick.c_str(), strlen(s_nick.c_str()), 0);
     send(Socket, s_pass.c_str(), strlen(s_pass.c_str()), 0);
+    send(Socket, s_nick.c_str(), strlen(s_nick.c_str()), 0);
     // Send channel we want to join.
     send(Socket, channeltojoin.c_str(), strlen(channeltojoin.c_str()), 0);
     Msg("Connected to twitch!\r\n");
