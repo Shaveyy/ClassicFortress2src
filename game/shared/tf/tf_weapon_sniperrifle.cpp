@@ -312,7 +312,7 @@ void CTFSniperRifle::ItemPostFrame( void )
 			ToggleZoom1();
 		}
 
-		m_flChargedDamage = 0.0f;
+		m_flNextPrimaryAttack = max(m_flNextPrimaryAttack, gpGlobals->curtime + 0.05);
 		m_bRezoomAfterShot = false;
 	}
 	else if ( m_flNextSecondaryAttack <= gpGlobals->curtime )
@@ -332,8 +332,10 @@ void CTFSniperRifle::ItemPostFrame( void )
 	if (pPlayer->m_afButtonPressed & IN_ATTACK) {
 		// if holders velocity is 310 (sniper's max speed +10) dont allow
 		if (m_flNextPrimaryAttack > gpGlobals->curtime)
+		{
+			pPlayer->EmitSound("Player.DenyWeaponSelection");
 			return;
-		if (pPlayer->GetLocalVelocity().Length() < 310)
+		}
 			pPlayer->m_Shared.AddCond(TF_COND_AIMING);
 			pPlayer->TeamFortress_SetSpeed();
 		// start charging
@@ -346,8 +348,6 @@ void CTFSniperRifle::ItemPostFrame( void )
 		pPlayer->TeamFortress_SetSpeed();
 		if (m_flChargedDamage >= 20)
 			Fire(pPlayer);
-		else 
-			m_flChargedDamage = 0;
 	}
 
 	// Idle.
@@ -394,7 +394,7 @@ void CTFSniperRifle::Zoom( void )
 	ToggleZoom();
 
 	// at least 0.1 seconds from now, but don't stomp a previous value
-	m_flNextPrimaryAttack = max( m_flNextPrimaryAttack, gpGlobals->curtime + 0.1 );
+	m_flNextPrimaryAttack = max( m_flNextPrimaryAttack, gpGlobals->curtime + 0.07 );
 	m_flNextSecondaryAttack = gpGlobals->curtime + TF_WEAPON_SNIPERRIFLE_ZOOM_TIME;
 }
 
@@ -490,7 +490,9 @@ void CTFSniperRifle::Fire( CTFPlayer *pPlayer )
 	}
 
 	if (m_flNextPrimaryAttack > gpGlobals->curtime)
+	{
 		return;
+	}
 
 	// Fire the sniper shot.
 	PrimaryAttack();

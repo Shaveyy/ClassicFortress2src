@@ -260,8 +260,8 @@ void CHudWeaponSelection::Paint()
 				if (pWeapon->GetSpriteActive())
 				{
 					// find the center of the box to draw in
-					int iconWidth = pWeapon->GetSpriteActive()->Width() - (iconWidth /2);
-					int iconHeight = pWeapon->GetSpriteActive()->Height() - (iconHeight /2);
+					int iconWidth = pWeapon->GetSpriteActive()->Width() - 10;
+						int iconHeight = pWeapon->GetSpriteActive()->Height() - 10;
 
 					int x_offs = (largeBoxWide - iconWidth) / 2;
 					int y_offs = (largeBoxTall - iconHeight) / 2;
