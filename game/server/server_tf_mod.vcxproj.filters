@@ -1805,6 +1805,9 @@
     <ClInclude Include="..\shared\func_no_jump.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\shared\tf\tf_weapon_pipenade.h">
+      <Filter>Source Files\TF\Weapon</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gamedll_replay.cpp">
@@ -3357,6 +3360,9 @@
     </ClCompile>
     <ClCompile Include="..\shared\func_no_jump.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\tf\tf_weapon_pipenade.cpp">
+      <Filter>Source Files\TF\Weapon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

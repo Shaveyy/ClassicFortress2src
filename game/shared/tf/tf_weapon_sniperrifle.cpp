@@ -259,7 +259,7 @@ void CTFSniperRifle::ProcessAnimationEvents(void)
 	CBasePlayer* pOwner = ToBasePlayer(GetOwner());
 	if (!pOwner)
 		return;
-		SendWeaponAnim(ACT_VM_SPRINT_IDLE);
+		SendWeaponAnim(ACT_VM_HOLSTER);
 		m_flNextPrimaryAttack = gpGlobals->curtime + GetViewModelSequenceDuration();
 		m_flNextSecondaryAttack = m_flNextPrimaryAttack;
 }
@@ -271,8 +271,6 @@ void CTFSniperRifle::ItemPostFrame( void )
 	CTFPlayer* Player = ToTFPlayer(GetOwner());
 	if (!Player)
 		return;
-	if (Player->GetLocalVelocity().Length() > 309)
-		ProcessAnimationEvents();
 	//HandleAnimations(Player);
 	// If we're lowered, we're not allowed to fire
 //	ProcessAnimationEvents();
@@ -311,8 +309,6 @@ void CTFSniperRifle::ItemPostFrame( void )
 			ToggleZoom();
 			ToggleZoom1();
 		}
-
-		m_flNextPrimaryAttack = max(m_flNextPrimaryAttack, gpGlobals->curtime + 0.05);
 		m_bRezoomAfterShot = false;
 	}
 	else if ( m_flNextSecondaryAttack <= gpGlobals->curtime )
@@ -331,11 +327,6 @@ void CTFSniperRifle::ItemPostFrame( void )
 		CreateSniperDot();
 	if (pPlayer->m_afButtonPressed & IN_ATTACK) {
 		// if holders velocity is 310 (sniper's max speed +10) dont allow
-		if (m_flNextPrimaryAttack > gpGlobals->curtime)
-		{
-			pPlayer->EmitSound("Player.DenyWeaponSelection");
-			return;
-		}
 			pPlayer->m_Shared.AddCond(TF_COND_AIMING);
 			pPlayer->TeamFortress_SetSpeed();
 		// start charging
@@ -344,10 +335,23 @@ void CTFSniperRifle::ItemPostFrame( void )
 	if ( pPlayer->m_afButtonReleased & IN_ATTACK )
 	{
 		DestroySniperDot();
+		if (m_flNextPrimaryAttack > gpGlobals->curtime)
+		{
+			// play deny sound
+			pPlayer->EmitSound("Player.DenyWeaponSelection");
+			return;
+		}
 		pPlayer->m_Shared.RemoveCond(TF_COND_AIMING);
 		pPlayer->TeamFortress_SetSpeed();
-		if (m_flChargedDamage >= 20)
+		// if the player weapon is at 20% and is not jumping, fire!
+		if (m_flChargedDamage >= 20 && !pPlayer->m_Shared.IsJumping())
 			Fire(pPlayer);
+		else if(pPlayer->m_Shared.IsJumping())
+		{
+			pPlayer->m_Shared.RemoveCond(TF_COND_AIMING);
+			m_flChargedDamage = 0;
+			pPlayer->EmitSound("Player.DenyWeaponSelection");
+		}
 	}
 
 	// Idle.

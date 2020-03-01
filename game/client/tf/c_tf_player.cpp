@@ -3014,7 +3014,7 @@ void C_TFPlayer::CreateSaveMeEffect(void)
 	m_pSaveMeEffect = ParticleProp()->Create("speech_mediccall", PATTACH_POINT_FOLLOW, "head");
 
 	// If the local player is a medic, add this player to our list of medic callers
-	if (pLocalPlayer && pLocalPlayer->IsPlayerClass(TF_CLASS_MEDIC) && pLocalPlayer->IsAlive() == true)
+	if (pLocalPlayer && pLocalPlayer->IsPlayerClass(TF_CLASS_MEDIC) && pLocalPlayer->IsAlive())
 	{
 		Vector vecPos;
 		if (GetAttachmentLocal(LookupAttachment("head"), vecPos))

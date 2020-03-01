@@ -268,6 +268,7 @@ exit 1
     <ClInclude Include="..\..\game\shared\ammodef.h" />
     <ClInclude Include="..\..\game\shared\base_playeranimstate.h" />
     <ClInclude Include="..\shared\func_no_jump.h" />
+    <ClInclude Include="..\shared\tf\tf_weapon_pipenade.h" />
     <ClInclude Include="base_transmit_proxy.h" />
     <ClInclude Include="..\..\public\basehandle.h" />
     <ClInclude Include="basetempentity.h" />
@@ -844,6 +845,7 @@ exit 1
   <ItemGroup>
     <ClCompile Include="..\shared\clas_handviewmodel_shared.cpp" />
     <ClCompile Include="..\shared\func_no_jump.cpp" />
+    <ClCompile Include="..\shared\tf\tf_weapon_pipenade.cpp" />
     <ClCompile Include="gamedll_replay.cpp" />
     <ClCompile Include="..\..\game\shared\achievement_saverestore.cpp" />
     <ClCompile Include="..\..\game\shared\achievementmgr.cpp" />
