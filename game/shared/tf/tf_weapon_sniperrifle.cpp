@@ -495,6 +495,7 @@ void CTFSniperRifle::Fire( CTFPlayer *pPlayer )
 		HandleFireOnEmpty();
 		return;
 	}
+	ZoomOut();
 
 	if (m_flNextPrimaryAttack > gpGlobals->curtime)
 	{
