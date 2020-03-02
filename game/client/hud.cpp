@@ -219,7 +219,7 @@ CHudTexture::~CHudTexture()
 {
 	if ( vgui::surface() && textureId != -1 )
 	{
-		vgui::surface()->DestroyTextureID( textureId );
+// fix later		vgui::surface()->DestroyTextureID( textureId );
 		textureId = -1;
 	}
 }

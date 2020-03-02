@@ -38,7 +38,6 @@ ConVar  tf_solidobjects("tf_solidobjects", "1", FCVAR_REPLICATED | FCVAR_CHEAT |
 ConVar	tf_clamp_back_speed("tf_clamp_back_speed", "0.9", FCVAR_REPLICATED | FCVAR_DEVELOPMENTONLY);
 ConVar  tf_clamp_back_speed_min("tf_clamp_back_speed_min", "100", FCVAR_REPLICATED | FCVAR_DEVELOPMENTONLY);
 ConVar	clas_doublejump("clas_doublejump", "0", FCVAR_REPLICATED | FCVAR_CHEAT);
-
 #define TF_MAX_SPEED   400
 
 #define TF_WATERJUMP_FORWARD  30
@@ -324,7 +323,7 @@ void CTFGameMovement::PreventBunnyJumping()
 {
 	// Speed at which bunny jumping is limited
 	if (player->m_flSpeed >= player->m_flMaxspeed + 200) 
-		player->m_flSpeed = player->m_flSpeed / 2; // We halve the speed instead of completly not allowing bhop's.
+		player->m_flSpeed = player->m_flSpeed / 2; // We halve the speed instead of completely not allowing bhop's.
 }
 bool CTFGameMovement::CheckJumpButton()
 {
@@ -378,7 +377,8 @@ bool CTFGameMovement::CheckJumpButton()
 
 	// Start jump animation and player sound (specific TF animation and flags).
 	m_pTFPlayer->DoAnimationEvent(PLAYERANIMEVENT_JUMP);
-	player->PlayStepSound((Vector&)mv->GetAbsOrigin(), player->m_pSurfaceData, 1.0, true);
+	player->EmitSound("Player.Jump");
+	//player->PlayStepSound((Vector&)mv->GetAbsOrigin(), player->m_pSurfaceData, 1.0, true);
 	m_pTFPlayer->m_Shared.SetJumping(true);
 
 	// Set the player as in the air.

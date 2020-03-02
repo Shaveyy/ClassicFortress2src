@@ -59,7 +59,7 @@ string parseMessage(string msg) {
     and match[4] is message.
     my regex is a bit broken but it works, so yeah!
     */
-    return msg;
+    return "";
 }
 int IRC::CreateConnection() {
     std::thread connection(StartIRC);
