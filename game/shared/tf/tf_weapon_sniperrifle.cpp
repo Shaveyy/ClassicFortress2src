@@ -310,6 +310,7 @@ void CTFSniperRifle::ItemPostFrame( void )
 			ToggleZoom1();
 		}
 		m_bRezoomAfterShot = false;
+		m_flNextSecondaryAttack = gpGlobals->curtime + 0.1;
 	}
 	else if ( m_flNextSecondaryAttack <= gpGlobals->curtime )
 	{
@@ -327,7 +328,7 @@ void CTFSniperRifle::ItemPostFrame( void )
 		CreateSniperDot();
 	if (pPlayer->m_afButtonPressed & IN_ATTACK) {
 		// if holders velocity is 310 (sniper's max speed +10) dont allow
-		if(pPlayer->GetLocalVelocity().Length() < 50)
+		if(pPlayer->GetLocalVelocity().Length() < 300)
 		{
 		// start charging
 			pPlayer->m_Shared.AddCond(TF_COND_AIMING);
@@ -504,25 +505,8 @@ void CTFSniperRifle::Fire( CTFPlayer *pPlayer )
 
 	// Fire the sniper shot.
 	PrimaryAttack();
-
-	if (IsZoomed())
-	{
-		// If we have more bullets, zoom out, play the bolt animation and zoom back in
-		if (pPlayer->GetAmmoCount(m_iPrimaryAmmoType) > 0)
-		{
-			SetRezoom(true, 0.5f);	// zoom out in 0.5 seconds, then rezoom
-		}
-		else
-		{
-			//just zoom out
-			SetRezoom(false, 0.5f);	// just zoom out in 0.5 seconds
-		}
-	}
-	else
-	{
 		// Prevent primary fire preventing zooms
-		m_flNextSecondaryAttack = gpGlobals->curtime + SequenceDuration();
-	}
+	m_flNextSecondaryAttack = gpGlobals->curtime + SequenceDuration();
 
 	m_flChargedDamage = 0.0f;
 
