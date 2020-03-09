@@ -326,6 +326,8 @@ void CTFSniperRifle::ItemPostFrame( void )
 	}
 	if (m_flChargedDamage >= 20)
 		CreateSniperDot();
+	else if(m_flChargedDamage < 20)
+		DestroySniperDot();
 	if (pPlayer->m_afButtonPressed & IN_ATTACK) {
 		// if holders velocity is 310 (sniper's max speed +10) dont allow
 		if(pPlayer->GetLocalVelocity().Length() < 300)
@@ -338,7 +340,6 @@ void CTFSniperRifle::ItemPostFrame( void )
 	// Fire.
 	if ( pPlayer->m_afButtonReleased & IN_ATTACK )
 	{
-		DestroySniperDot();
 		if (m_flNextPrimaryAttack > gpGlobals->curtime)
 		{
 			// play deny sound
@@ -347,15 +348,17 @@ void CTFSniperRifle::ItemPostFrame( void )
 		}
 		pPlayer->m_Shared.RemoveCond(TF_COND_AIMING);
 		pPlayer->TeamFortress_SetSpeed();
-		// if the player weapon is at 20% and is not jumping, fire!
-		if (m_flChargedDamage >= 20 && !pPlayer->m_Shared.IsJumping())
-			Fire(pPlayer);
-		else if(pPlayer->m_Shared.IsJumping())
+		if (pPlayer->m_Shared.IsJumping())
 		{
-			pPlayer->m_Shared.RemoveCond(TF_COND_AIMING);
 			m_flChargedDamage = 0;
+			// play deny sound
 			pPlayer->EmitSound("Player.DenyWeaponSelection");
+			return;
 		}
+		if (m_flChargedDamage < 20)
+			return;
+		// if the player weapon is at 20% and is not jumping, fire!
+			Fire(pPlayer);
 	}
 
 	// Idle.
